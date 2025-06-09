@@ -8,7 +8,7 @@ pipeline{
 		stage('checkout'){
 			steps{
 			
-			git br	anch:'master',url:'https://github.com/Priyanka5555544/MyMaven47.git'
+			git branch:'master',url:'https://github.com/Priyanka5555544/MyMaven47.git'
 			}
 			}
 		stage('build'){

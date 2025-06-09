@@ -3,35 +3,37 @@ pipeline{
 	
 	tools{
 		maven 'Maven'
-		}
-		stages{
+	}
+	stages{
 		stage('checkout'){
 			steps{
 			
-			git branch:'master',url:'https://github.com/Priyanka5555544/MyMaven47.git'
+				git branch:'master',url:'https://github.com/Priyanka5555544/MyMaven47.git'
 			}
-			}
+		}
 		stage('build'){
 			steps{
-			sh 'mvn clean package'
+				sh 'mvn clean package'
 			}
-			}
-		stage('Test'){
-		steps{
-		sh 'mvn test'
 		}
+		stage('Test'){
+			steps{
+				sh 'mvn test'
+			}
 		}
 		stage('Run Application'){
-		steps{
-		sh 'java -jar target/MyMaven47-1.0-SNAPSHOT.jar'
-		}}
+			steps{
+				sh 'java -jar target/MyMaven47-1.0-SNAPSHOT.jar'
+			}
 		}
-post{
-success{
-	echo 'build is sucessful'
 	}
-failure{
-echo "build fail'
-}
+	post{
+		success{
+			echo 'build is sucessful'
+		}
+		failure{
+			echo "build fail"
+		}
+	}
 }
 	

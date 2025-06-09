@@ -1,0 +1,11 @@
+trigger:
+- master
+pool:
+    name: default
+steps:
+- script: echo may mave azure project
+  displayName: 'run one line script'
+- script: mvn clean install
+  displayName: 'build a maven project'
+- script: java -jar target/MyMaven47-1.0-SNAPSHOT.jar
+  displayName: 'running jar'
